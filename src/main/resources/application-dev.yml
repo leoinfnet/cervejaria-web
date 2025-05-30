@@ -1,19 +1,18 @@
 spring:
-  profiles:
-    active: k8s
   cache:
     type: redis
   data:
     redis:
       host: localhost
+      #host: 10.108.0.191
       port: 30002
+      #port: 6379
   datasource:
     url: jdbc:h2:mem:cervejaria
     #url: jdbc:postgres:10.108.237.5:5432
     #url: jdbc:h2:file:./cervejaria
     username: sa
     password: 123456
-    segredo: segredo-dev
     driver-class-name: org.h2.Driver
   h2:
     console:

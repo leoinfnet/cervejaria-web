@@ -47,3 +47,18 @@ INSERT INTO USUARIO(email,nome,status,password) VALUES ( 'exfuncionario@acme.com
 INSERT INTO USUARIO_ROLES(ROLES_ID, USUARIO_ID) VALUES ( 1,1 );
 INSERT INTO USUARIO_ROLES(ROLES_ID, USUARIO_ID) VALUES ( 2,1 );
 INSERT INTO USUARIO_ROLES(ROLES_ID, USUARIO_ID) VALUES ( 2,2 );
+
+-- Ranking para 2025-04-15
+INSERT INTO RANKING_CERVEJA(cerveja_id, data_ranking, posicao, pontuacao) VALUES (1, '2025-04-15', 1, 9.3);
+INSERT INTO RANKING_CERVEJA(cerveja_id, data_ranking, posicao, pontuacao) VALUES (2, '2025-04-15', 2, 8.7);
+INSERT INTO RANKING_CERVEJA(cerveja_id, data_ranking, posicao, pontuacao) VALUES (3, '2025-04-15', 3, 8.5);
+
+-- Ranking para 2025-04-16
+INSERT INTO RANKING_CERVEJA(cerveja_id, data_ranking, posicao, pontuacao) VALUES (3, '2025-04-16', 1, 9.1);
+INSERT INTO RANKING_CERVEJA(cerveja_id, data_ranking, posicao, pontuacao) VALUES (1, '2025-04-16', 2, 8.9);
+INSERT INTO RANKING_CERVEJA(cerveja_id, data_ranking, posicao, pontuacao) VALUES (4, '2025-04-16', 3, 8.2);
+
+-- Ranking para 2025-04-17
+INSERT INTO RANKING_CERVEJA(cerveja_id, data_ranking, posicao, pontuacao) VALUES (2, '2025-04-17', 1, 9.0);
+INSERT INTO RANKING_CERVEJA(cerveja_id, data_ranking, posicao, pontuacao) VALUES (4, '2025-04-17', 2, 8.6);
+INSERT INTO RANKING_CERVEJA(cerveja_id, data_ranking, posicao, pontuacao) VALUES (1, '2025-04-17', 3, 8.4);

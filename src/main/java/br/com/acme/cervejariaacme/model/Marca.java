@@ -9,13 +9,14 @@ import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.converter.json.GsonBuilderUtils;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.UUID;
 
 @Data@AllArgsConstructor@NoArgsConstructor@Builder
 @Entity
 @Table(name = "MARCAS")
-public class Marca {
+public class Marca implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

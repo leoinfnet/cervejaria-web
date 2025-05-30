@@ -1,0 +1,31 @@
+version: "3.8"
+
+services:
+  redis:
+    image: redis:7
+    container_name: redis
+    ports:
+      - "6379:6379"
+
+  toxiproxy:
+    image: shopify/toxiproxy
+    container_name: toxiproxy
+    ports:
+      - "8474:8474"    # API do Toxiproxy
+      - "8666:8666"    # Proxy para Redis
+    command: >
+      /bin/sh -c "
+        toxiproxy-server &
+        sleep 2 &&
+        toxiproxy-cli create redis-proxy -l 0.0.0.0:8666 -u redis:6379 &&
+        tail -f /dev/null
+      "
+    depends_on:
+      - redis
+
+  redis-cli:
+    image: redis:7
+    container_name: redis-cli
+    entrypoint: tail -f /dev/null
+    depends_on:
+      - toxiproxy

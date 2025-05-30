@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cervejaria-deploy
+  namespace: cervejaria
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cervejaria
+  template:
+    metadata:
+      labels:
+        app: cervejaria
+    spec:
+      containers:
+        - name: cervejaria
+          readinessProbe:
+            httpGet:
+              port: 8080
+              path: /login
+            periodSeconds: 10
+            timeoutSeconds: 2
+            initialDelaySeconds: 5
+            failureThreshold: 2
+          livenessProbe:
+            httpGet:
+              port: 8080
+              path: /login
+            initialDelaySeconds: 10
+            periodSeconds: 30
+            timeoutSeconds: 2
+            failureThreshold: 3
+          image: leogloriainfnet/cervejaria-acme:latest
+          imagePullPolicy: Always
+          envFrom:
+            - secretRef:
+                name: cervejaria-secret
+            - configMapRef:
+                name: cervejaria-cm
+          env:
+            - name: SEGREDO_NOVO
+              valueFrom:
+                secretKeyRef:
+                  key: SEGREDO3
+                  name: cervejaria-secret
+            - name: SEGREDO
+              valueFrom:
+                configMapKeyRef:
+                  key: segredoSecreto
+                  name: cervejaria-cm
+            - name: SEGREDO2
+              value: "segredo-do-env"
+      restartPolicy: Always
+
+

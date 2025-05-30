@@ -34,7 +34,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link text-white"  th:classappend="${module == 'tipoCerveja' ? 'active bg-gradient-primary' : ''}" th:href="@{/tipo-cervejas/index}">
+                <a id="tiposLink" href="#" class="nav-link text-white"  th:classappend="${module == 'tipoCerveja' ? 'active bg-gradient-primary' : ''}" th:href="@{/tipo-cervejas/index}">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">receipt_long</i>
                     </div>
@@ -60,26 +60,20 @@
                     <span class="nav-link-text ms-1">Cervejas</span>
                 </a>
             </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link text-white"  th:classappend="${module == 'relatorio-cervejas' ? 'active bg-gradient-primary' : ''}" th:href="@{/top-cervejas/index}">
+                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="material-icons opacity-10">receipt_long</i>
+                    </div>
+                    <span class="nav-link-text ms-1">Top Cervejas</span>
+                </a>
+            </li>
+
 
             <li class="nav-item mt-3">
                 <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Account pages</h6>
             </li>
-            <li class="nav-item">
-                <a class="nav-link text-white " href="../pages/profile.html">
-                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="material-icons opacity-10">person</i>
-                    </div>
-                    <span class="nav-link-text ms-1">Profile</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-white " href="../pages/sign-in.html">
-                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="material-icons opacity-10">login</i>
-                    </div>
-                    <span class="nav-link-text ms-1">Sign In</span>
-                </a>
-            </li>
+
             <li class="nav-item">
                 <a class="nav-link text-white " href="../pages/sign-up.html">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">

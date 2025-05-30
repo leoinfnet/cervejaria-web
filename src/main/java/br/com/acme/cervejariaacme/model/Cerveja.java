@@ -2,13 +2,15 @@ package br.com.acme.cervejariaacme.model;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.stereotype.Service;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.Set;
 
 @Data @AllArgsConstructor@NoArgsConstructor@Builder
 @Entity
-public class Cerveja {
+public class Cerveja implements Serializable {
     @Id@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;

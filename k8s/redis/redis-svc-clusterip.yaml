@@ -1,14 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: banco-service
   namespace: cervejaria
+  name: redis-svc-cluster
 spec:
   selector:
-    app: banco
+    app: redis
+  type: ClusterIP
   ports:
     - protocol: TCP
-      port: 5432
-      targetPort: 5432
-  type: ClusterIP
-  
+      port: 6379
+      targetPort: 6379
