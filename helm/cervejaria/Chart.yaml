@@ -1,0 +1,7 @@
+apiVersion: v2
+name: cervejaria
+namespace: cervejaria
+description: Chart do Aplicativo de Cervejaria
+type: application
+appVersion: "5.0"
+version: 1.0.1

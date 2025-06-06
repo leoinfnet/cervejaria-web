@@ -1,0 +1,17 @@
+appLabel: cervejaria
+replicaCount: 1
+service:
+  type: NodePort
+  port: 8080
+  targetPort: 8080
+  nodePort: 30010
+configmap:
+  segredoSecreto: "teste"
+  parametros_db:
+    DB_HOST: 192.168.0.3
+    DB_USER: usuario
+    DB_PASS: "123456"
+image:
+  repository: leogloriainfnet/cervejaria-acme
+  tag: latest
+  pullPolicy: Always

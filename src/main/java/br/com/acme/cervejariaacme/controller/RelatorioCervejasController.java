@@ -6,7 +6,7 @@ import br.com.acme.cervejariaacme.service.CervejaService;
 import br.com.acme.cervejariaacme.service.EstiloService;
 import br.com.acme.cervejariaacme.service.LupuloService;
 import br.com.acme.cervejariaacme.service.MarcaService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
@@ -20,15 +20,12 @@ import java.util.List;
 @Controller
 @RequestMapping("/relatorio-cervejas")
 @Transactional
+@AllArgsConstructor
 public class RelatorioCervejasController {
-    @Autowired
-    MarcaService marcaService;
-    @Autowired
-    EstiloService estiloService;
-    @Autowired
-    LupuloService lupuloService;
-    @Autowired
-    CervejaService cervejaService;
+    private final MarcaService marcaService;
+    private final EstiloService estiloService;
+    private final LupuloService lupuloService;
+    private final  CervejaService cervejaService;
     @GetMapping("/index")
     public String index(Model model,RedirectAttributes redirectAttributes){
         List<Cerveja> cervejas = (List<Cerveja>) redirectAttributes.getAttribute("cervejas");
@@ -39,6 +36,7 @@ public class RelatorioCervejasController {
         model.addAttribute("lupulos", lupuloService.findAll());
         model.addAttribute("cerveja", new CervejaFilters());
         model.addAttribute("cervejas", model.getAttribute("cervejas"));
+
         return "relatorioCervejas/index";
     }
     @PostMapping("/find")

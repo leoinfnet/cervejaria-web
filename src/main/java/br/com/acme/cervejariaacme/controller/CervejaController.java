@@ -1,12 +1,11 @@
 package br.com.acme.cervejariaacme.controller;
 
 import br.com.acme.cervejariaacme.model.Cerveja;
-import br.com.acme.cervejariaacme.model.Estilo;
 import br.com.acme.cervejariaacme.service.CervejaService;
 import br.com.acme.cervejariaacme.service.EstiloService;
 import br.com.acme.cervejariaacme.service.LupuloService;
 import br.com.acme.cervejariaacme.service.MarcaService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -15,15 +14,12 @@ import org.springframework.web.servlet.view.RedirectView;
 
 @Controller
 @RequestMapping("/cervejas")
+@AllArgsConstructor
 public class CervejaController {
-    @Autowired
-    CervejaService cervejaService;
-    @Autowired
-    EstiloService estiloService;
-    @Autowired
-    MarcaService marcaService;
-    @Autowired
-    LupuloService lupuloService;
+    private final CervejaService cervejaService;
+    private final  EstiloService estiloService;
+    private final MarcaService marcaService;
+    private final  LupuloService lupuloService;
     @GetMapping("/index")
     public String getAll(Model model , @ModelAttribute("sucesso") Object sucesso,
                               @ModelAttribute("sucessoDelete") Object sucessoDelete,

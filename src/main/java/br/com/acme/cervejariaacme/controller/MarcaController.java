@@ -1,13 +1,12 @@
 package br.com.acme.cervejariaacme.controller;
 
-import br.com.acme.cervejariaacme.model.Estilo;
 import br.com.acme.cervejariaacme.model.Marca;
 import br.com.acme.cervejariaacme.service.EstiloService;
 import br.com.acme.cervejariaacme.service.MarcaService;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.ConstraintViolationException;
 import jakarta.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -17,13 +16,13 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.Set;
 
+//Esse controlador é de marca
 @Controller
 @RequestMapping("/marcas")
+@AllArgsConstructor
 public class MarcaController {
-    @Autowired
-    MarcaService marcaService;
-    @Autowired
-    EstiloService estiloService;
+    private final MarcaService marcaService;
+    private final  EstiloService estiloService;
     @GetMapping("/index")
     public String getAll(Model model , @ModelAttribute("sucesso") Object sucesso,
                          @ModelAttribute("sucessoDelete") Object sucessoDelete,

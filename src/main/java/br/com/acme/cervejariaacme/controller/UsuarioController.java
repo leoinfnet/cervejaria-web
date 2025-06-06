@@ -1,7 +1,7 @@
 package br.com.acme.cervejariaacme.controller;
 
 import br.com.acme.cervejariaacme.service.UsuarioService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/usuario")
+@RequiredArgsConstructor
 public class UsuarioController {
-    @Autowired
-    UsuarioService usuarioService;
+    private final UsuarioService usuarioService;
     @GetMapping
     public String getAll(Model model){
         this.usuarioService.findAll();

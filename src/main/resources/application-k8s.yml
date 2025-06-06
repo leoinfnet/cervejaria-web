@@ -6,7 +6,7 @@ spring:
     timeout: 3600
   data:
     redis:
-      host: 10.108.0.191
+      host: redis-svc-cluster
       port: 6379
   datasource:
     url: jdbc:h2:mem:cervejaria
@@ -14,7 +14,6 @@ spring:
     #url: jdbc:h2:file:./cervejaria
     username: sa
     password: 123456
-    segredo: ${SEGREDO}
     driver-class-name: org.h2.Driver
   h2:
     console:

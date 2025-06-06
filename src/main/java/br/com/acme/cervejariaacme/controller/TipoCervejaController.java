@@ -2,7 +2,7 @@ package br.com.acme.cervejariaacme.controller;
 
 import br.com.acme.cervejariaacme.model.Estilo;
 import br.com.acme.cervejariaacme.service.EstiloService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -12,9 +12,9 @@ import org.springframework.web.servlet.view.RedirectView;
 
 @Controller
 @RequestMapping("/tipo-cervejas")
+@AllArgsConstructor
 public class TipoCervejaController {
-    @Autowired
-    EstiloService estiloService;
+    private final EstiloService estiloService;
     @GetMapping("/index")
     public String getAllTipos(Model model , @ModelAttribute("sucesso") Object sucesso,
                               @ModelAttribute("sucessoDelete") Object sucessoDelete,
@@ -69,7 +69,6 @@ public class TipoCervejaController {
             estiloService.deleteById(id);
             redirectAttributes.addFlashAttribute("sucessoDelete",true);
         }catch (Exception ex){
-            ex.printStackTrace();
             redirectAttributes.addFlashAttribute("sucessoDelete",false);
         }
         return new RedirectView("../index");

@@ -3,7 +3,7 @@ package br.com.acme.cervejariaacme.controller;
 import br.com.acme.cervejariaacme.model.Usuario;
 import br.com.acme.cervejariaacme.service.UsuarioService;
 import jakarta.servlet.http.HttpSession;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,9 +16,9 @@ import java.util.Optional;
 
 @Controller
 @RequestMapping("/login")
+@AllArgsConstructor
 public class LoginController {
-    @Autowired
-    UsuarioService usuarioService;
+    private final UsuarioService usuarioService;
     @GetMapping
     public String showFormLogin(Model model, @ModelAttribute("message") Object message,
                                 @ModelAttribute("login-sucesso") Object loginSucesso  ){

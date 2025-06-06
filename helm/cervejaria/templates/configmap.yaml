@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{.Release.Name}}-cm
+  namespace: {{.Release.Namespace}}
+data:
+  segredoSecreto: {{.Values.configmap.segredoSecreto | quote}}
+{{- range $key,$value :=  .Values.configmap.parametros_db  }}
+  {{$key}}: "{{$value}}"
+{{- end}}
